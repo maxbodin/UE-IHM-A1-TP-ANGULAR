@@ -1,1 +1,22 @@
-<p>grid1 works!</p>
+<div class="chronometer">
+  <h1>Chronomètre</h1>
+  <h2>{{ minutes }} : {{ seconds }}</h2>
+
+  <div class="buttons">
+    <button
+      (click)="start()"
+      [disabled]="!enablePlay">
+      {{ minutes > 0 || seconds > 0 ? 'Continuer' : 'Démarrer' }}
+    </button>
+    <button
+      (click)="stop()"
+      [disabled]="!enableStop">
+      Arrêter
+    </button>
+    <button
+      (click)="reset()"
+      [disabled]="!enableReset">
+      Effacer
+    </button>
+  </div>
+</div>
