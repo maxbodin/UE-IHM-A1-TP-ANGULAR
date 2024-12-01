@@ -5,19 +5,8 @@
   <div class="image-container">
     <img
       [src]="currentImageUrl"
-      [style.width.px]="currentScaleFactor"
+      [style.width.px]="size"
       alt="Image courante"/>
-  </div>
-
-  <!-- Slider pour la largeur -->
-  <div class="scale-slider">
-    <input
-      (input)="adjustScale($event)"
-      [value]="currentScaleFactor"
-      max="400"
-      min="10"
-      type="range"/>
-    <p>Zoom : {{ currentScaleFactor }} px</p>
   </div>
 
   <!-- Navigation -->

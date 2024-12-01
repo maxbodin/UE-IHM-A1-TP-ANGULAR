@@ -1,16 +1,14 @@
-.image-container {
+.scale-slider {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   text-align: center;
   font-family: Arial, sans-serif;
 }
 
-.image-container {
-  margin: 20px 0;
-}
-
-img {
-  max-height: 400px;
-  object-fit: contain;
+.scale-slider input[type="range"] {
+  width: 100%;
+  max-width: 33vw;
+  margin: 10px 0;
 }

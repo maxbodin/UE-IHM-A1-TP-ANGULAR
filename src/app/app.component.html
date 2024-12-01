@@ -5,10 +5,13 @@
         <app-grid1></app-grid1>
       </div>
       <div class="col">
-        <app-grid2 (urlChange)="onUrlChange($event)"></app-grid2>
+        <app-grid2 (urlChange)="onUrlChange($event)" [size]="currentSize"></app-grid2>
       </div>
       <div class="col">
         <app-grid3 [url]="currentImageUrl"></app-grid3>
+      </div>
+      <div class="col">
+        <app-grid5 [(size)]="currentSize"></app-grid5>
       </div>
     </div>
   </div>

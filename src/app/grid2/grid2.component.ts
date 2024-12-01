@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Output} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {ImageLibrary} from "../imageLibrary";
 import {NgForOf} from "@angular/common";
 
@@ -14,9 +14,9 @@ import {NgForOf} from "@angular/common";
 export class Grid2Component {
   // Émetteur d'événement pour transmettre l'URL.
   @Output() urlChange = new EventEmitter<string>();
+  @Input() size!: number;
 
   currentImageUrl: string = '';
-  currentScaleFactor: number = 300;
   imageUrls: string[] = [];
 
   constructor(protected imageLibrary: ImageLibrary) {
@@ -46,13 +46,6 @@ export class Grid2Component {
     this.updateImage();
   }
 
-  // Ajuster le facteur d'échelle.
-  adjustScale(event: any) {
-    const newScale = parseInt(event.target.value, 10);
-    this.imageLibrary.setCurrentScaleFactor(newScale);
-    this.currentScaleFactor = newScale;
-  }
-
   // Méthodes pour naviguer dans les images en sélectionnant.
   selectImage(index: number) {
     this.imageLibrary.setCurrentIndex(index);
@@ -67,7 +60,6 @@ export class Grid2Component {
   // Met à jour l'image courante et son facteur d'échelle.
   private updateImage() {
     this.currentImageUrl = this.imageLibrary.getCurrentImageUrl();
-    this.currentScaleFactor = this.imageLibrary.getCurrentImageScaleFactor();
     this.urlChange.emit(this.currentImageUrl);
   }
 }

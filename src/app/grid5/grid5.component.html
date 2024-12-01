@@ -1,0 +1,11 @@
+<!-- Slider pour la largeur -->
+<div class="scale-slider">
+  <h1>Slider pour la taille de l'image</h1>
+  <input
+    (input)="adjustScale($event)"
+    [value]="size"
+    max="400"
+    min="10"
+    type="range"/>
+  <p>Zoom : {{ size }} px</p>
+</div>

@@ -1,1 +1,22 @@
 /* You can add global styles to this file, and also import other style files */
+
+h1 {
+  color: black;
+}
+
+h2 {
+  color: black;
+  font-size: 2em;
+  margin: 20px 0;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 1em;
+  cursor: pointer;
+}
+
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
