@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, EventEmitter, Output} from '@angular/core';
 import {ImageLibrary} from "../imageLibrary";
 import {NgForOf} from "@angular/common";
 
@@ -12,6 +12,9 @@ import {NgForOf} from "@angular/common";
   styleUrl: './grid2.component.css'
 })
 export class Grid2Component {
+  // Émetteur d'événement pour transmettre l'URL.
+  @Output() urlChange = new EventEmitter<string>();
+
   currentImageUrl: string = '';
   currentScaleFactor: number = 300;
   imageUrls: string[] = [];
@@ -65,5 +68,6 @@ export class Grid2Component {
   private updateImage() {
     this.currentImageUrl = this.imageLibrary.getCurrentImageUrl();
     this.currentScaleFactor = this.imageLibrary.getCurrentImageScaleFactor();
+    this.urlChange.emit(this.currentImageUrl);
   }
 }

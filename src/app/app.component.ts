@@ -8,8 +8,18 @@ import {Grid3Component} from "./grid3/grid3.component";
   selector: 'app-root',
   imports: [RouterOutlet, Grid1Component, Grid2Component, Grid3Component],
   templateUrl: './app.component.html',
+  standalone: true,
   styleUrl: './app.component.css'
 })
 export class AppComponent {
   title = 'dashboard';
+
+  // URL de l'image actuelle.
+  currentImageUrl: string = '';
+
+
+  // Gestionnaire appelé lorsque Grid2 émet un événement.
+  onUrlChange(url: string) {
+    this.currentImageUrl = url;
+  }
 }
