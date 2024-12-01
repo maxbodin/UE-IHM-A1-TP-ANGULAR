@@ -1,1 +1,43 @@
-<p>grid2 works!</p>
+<div class="image-gallery">
+  <h1>Bibliothèque d'images</h1>
+
+  <!-- Image courante -->
+  <div class="image-container">
+    <img
+      [src]="currentImageUrl"
+      [style.width.px]="currentScaleFactor"
+      alt="Image courante"/>
+  </div>
+
+  <!-- Slider pour la largeur -->
+  <div class="scale-slider">
+    <input
+      (input)="adjustScale($event)"
+      [value]="currentScaleFactor"
+      max="400"
+      min="10"
+      type="range"/>
+    <p>Zoom : {{ currentScaleFactor }} px</p>
+  </div>
+
+  <!-- Navigation -->
+  <div class="navigation-buttons">
+    <button (click)="firstImage()" [disabled]="imageLibrary.getCurrentIndex() === 0">Première</button>
+    <button (click)="previousImage()" [disabled]="imageLibrary.getCurrentIndex() === 0">Précédente</button>
+    <button (click)="nextImage()" [disabled]="imageLibrary.getCurrentIndex() === imageLibrary.getSize() - 1">Suivante
+    </button>
+    <button (click)="lastImage()" [disabled]="imageLibrary.getCurrentIndex() === imageLibrary.getSize() - 1">Dernière
+    </button>
+  </div>
+
+  <!-- Navigation avec vignettes -->
+  <div class="thumbnails">
+    <div
+      (click)="selectImage(i)"
+      *ngFor="let url of imageUrls; let i = index"
+      [class.selected]="isSelected(i)"
+      class="thumbnail">
+      <img [src]="url" alt="Vignette"/>
+    </div>
+  </div>
+</div>

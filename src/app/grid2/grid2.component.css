@@ -1,3 +1,58 @@
-:host {
-  background: blue;
+.image-gallery {
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+h1 {
+  color: black;
+}
+
+.image-container {
+  margin: 20px 0;
+}
+
+img {
+  max-height: 400px;
+  object-fit: contain;
+}
+
+.scale-slider {
+  margin: 10px 0;
+}
+
+.navigation-buttons button {
+  margin: 5px;
+  padding: 10px 20px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.thumbnails {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.thumbnail {
+  border: 2px solid transparent;
+  padding: 5px;
+  cursor: pointer;
+  transition: border 0.3s;
+}
+
+.thumbnail img {
+  max-width: 100px;
+  max-height: 100px;
+  object-fit: cover;
+}
+
+.thumbnail.selected {
+  border: 2px solid blue;
 }
