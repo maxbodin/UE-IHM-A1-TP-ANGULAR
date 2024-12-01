@@ -15,7 +15,8 @@ export class ImageLibrary {
   library: Array<imageItem>; // bibliotheque d image
   private images: string[] = ["un.png", "geste.png", "pour.png",
     "la.png", "pla.png", "ne.png", "te.png"];
-  //private currentindex: number; // index de l image courante
+
+  // private currentindex: number = 0; // index de l image courante
   private currentIndexObserver = new BehaviorSubject<number>(0);
   public currentImageObserver = this.currentIndexObserver.asObservable();
 
@@ -23,7 +24,6 @@ export class ImageLibrary {
     this.library = new Array<imageItem>();
     for (let i = 0; i < this.images.length; i++)
       this.library.push({url: "../assets/images/" + this.images[i], size: 300});
-
   }
 
   getSize() {

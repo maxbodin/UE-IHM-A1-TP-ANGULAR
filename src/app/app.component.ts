@@ -4,7 +4,7 @@ import {Grid1Component} from "./grid1/grid1.component";
 import {Grid2Component} from "./grid2/grid2.component";
 import {Grid3Component} from "./grid3/grid3.component";
 import {Grid5Component} from './grid5/grid5.component';
-import {ImageLibrary} from './imageLibrary';
+import {ImageLibrary} from './services/imageLibrary';
 
 @Component({
   selector: 'app-root',
@@ -20,7 +20,8 @@ export class AppComponent {
   currentImageUrl: string = '';
   currentSize: number = 300;
 
-  constructor(protected imageLibrary: ImageLibrary) {}
+  constructor(protected imageLibrary: ImageLibrary) {
+  }
 
   // Gestionnaire appelé lorsque Grid2 émet un événement.
   onUrlChange(url: string) {
